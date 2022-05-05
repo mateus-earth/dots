@@ -23,11 +23,10 @@ bind "set completion-ignore-case on" ## ignore upper and lowercase when TAB comp
 
 ## VI mode on command line.
 set -o vi
-bind -m vi-command 'Control-l: clear-screen'
-bind -m vi-insert  'Control-l: clear-screen'
+bind -m vi-command "Control-l: clear-screen"
+bind -m vi-insert  "Control-l: clear-screen"
 
 PROMPT_DIRTRIM=2 # Automatically trim long paths in the prompt
-
 
 ## SMARTER TAB-COMPLETION (Readline bindings) ##
 
@@ -38,8 +37,8 @@ bind "set mark-symlinked-directories on" ## Immediately add a trailing slash whe
 
 
 ## This allows you to bookmark your favorite places across the file system
-## Define a variable containing a path and you will be able to cd into it regardless of the directory you're in
-shopt -s cdable_vars
+## Define a variable containing a path and you will be able to cd into it regardless of the directory you"re in
+## shopt -s cdable_vars
 
 # Examples:
 # export dotfiles="$HOME/dotfiles"

@@ -8,18 +8,18 @@ SHELL_SH_LOADED=1;
 ##------------------------------------------------------------------------------
 _edit() {
     if [ $# -eq 0 ]; then
-        $NVIM ".";   ## Edit current path...
+        $VISUAL ".";   ## Edit current path...
     else
-        $NVIM $args; ## Open with the given args...
+        $VISUAL $@; ## Open with the given args...
     fi;
 }
 
 ##------------------------------------------------------------------------------
 _git() {
     if [ $# -eq 0 ]; then
-        git s;      ## git status by default.
+        git s;   ## git status by default.
     else
-        git $args;  ## Just pass the args...
+        git $@;  ## Just pass the args...
     fi;
 }
 
@@ -33,12 +33,12 @@ _files() {
         target_path=".";
     fi;
 
-    local $file_manager = "";
+    local file_manager="";
 
-    if [ -z $bashy_IsMacOS ]; then
-        $file_manager = "open";
-    elif [ -z $bashy_IsGNU ]; then
-        $file_manager = "vimfm";
+    if [ $bashy_IsMacOS ]; then
+        file_manager="open";
+    elif [ $bashy_IsGNU ]; then
+        file_manager="vimfm";
     else
        bashy_msg -fatal  "No file manager was found - Aborting...";
        return 1;
@@ -51,7 +51,7 @@ _files() {
 ##------------------------------------------------------------------------------
 _vm() {
     local value="$1";
-    if [ -z $value; ]; then
+    if [ -z "$value" ]; then
         value="default";
     fi;
 
