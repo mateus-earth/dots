@@ -104,6 +104,11 @@ if [ -z "$(which brew)" ]; then
 fi;
 
 ## Install the desired profile.
+brew update;
+brew upgrade;
+
 for arg in ${args[@]}; do
     install_profile $arg;
 done;
+
+brew cleanup;
