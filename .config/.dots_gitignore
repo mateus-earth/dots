@@ -53,6 +53,7 @@ fzf/*.fish
 ## Mac
 .DS_Store
 .CFUserText*
+.Trash
 Applications/
 Music/
 Public/
