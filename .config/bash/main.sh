@@ -10,6 +10,7 @@ echo "math.earch config";
 . "${HOME}/.config/bash/bash_options.sh"  ## Config bash itself.
 . "${HOME}/.config/bash/shell.sh"         ## Functions and utilities.
 . "${HOME}/.config/bash/alias.sh"         ## Makes life easier.
+. "${HOME}/.config/bash/ps1.sh"
 . "${HOME}/.config/bash/ssh.sh"           ## SSH utilities.
 ##-----------------------------------------------------------------------------
 
