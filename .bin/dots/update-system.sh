@@ -9,10 +9,11 @@ fi
 
 ## Mac
 if [ "$(uname)" == "Darwin" ]; then
-    # sudo softwareupdate -i -a;    
-    echo ""
-else 
-    echo  "To implement.."
+    sudo softwareupdate -i -a;    
+elif [ "$(uname)" == "Linux" ]; then
+    sudo apt-get update;
+    sudo apt-get upgrade;
+    sudo apt-get dist-upgrade;
 fi;
 
 ## Brew
