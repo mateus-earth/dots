@@ -74,6 +74,7 @@ function install_profile()
             echo "Already installed: ($item)";
         else
             echo "Installing: ($item)";
+	    brew install "$item";
         fi;
     done;
 }
