@@ -12,14 +12,14 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
     sudo softwareupdate -i -a;    
 elif [ "$(uname)" == "Linux" ]; then
-    sudo apt-get update;
-    sudo apt-get upgrade;
-    sudo apt-get dist-upgrade;
+    sudo apt-get -y update;
+    sudo apt-get -y upgrade;
+    sudo apt-get -y dist-upgrade;
 fi;
 
 ## Brew
 ${HOME}/.bin/dots/update-brew.sh --core --workstation 
 
 ## NPM
-sudo npm install npm -g;
-sudo npm update      -g;
+npm install npm -g;
+npm update      -g;
