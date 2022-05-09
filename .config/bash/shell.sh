@@ -76,9 +76,8 @@ function dots()
     fi;
 }
 
-dots config --local status.showUntrackedFiles no
+dots config --local status.showUntrackedFiles no;
 dots config --local core.excludesfile "${HOME}/.config/.dots_gitignore";
-
 
 ##------------------------------------------------------------------------------
 function version()
