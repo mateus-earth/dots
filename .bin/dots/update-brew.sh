@@ -18,6 +18,7 @@ core_packages=(
     gnu-sed
     gnu-tar
     grep
+    jq
     libtool
     lynx
     make
