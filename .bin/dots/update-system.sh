@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 echo "This will probably shutdown the computer...";
 
