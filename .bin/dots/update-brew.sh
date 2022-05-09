@@ -21,6 +21,7 @@ core_packages=(
     jq
     libtool
     lynx
+    node
     make
     peco
     ripgrep
