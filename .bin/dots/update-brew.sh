@@ -45,8 +45,10 @@ workstation_packages=(
     youtube-dl
     alacritty
     vlc
+    telegram
     transmission
 )
+
 
 ##
 ## Functions 
