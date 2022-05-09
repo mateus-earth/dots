@@ -28,8 +28,8 @@ export HISTFILESIZE=
 export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
 
 ## Editor / Pager
-export EDITOR=nvim;
-export VISUAL=nvim;
+export EDITOR=vim;
+export VISUAL=vim;
 export PAGER=less;
 
 ## Locale
