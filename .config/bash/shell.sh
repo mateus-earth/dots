@@ -68,6 +68,8 @@ function dots()
     if [ $# -eq 1 ]; then 
         if [ "$1" == "g" ] || [ $1 == "gui" ]; then
             gitui -d $HOME/.dots/ -w $HOME;
+        else
+            git --git-dir=$HOME/.dots/ --work-tree=$HOME $@; 
         fi;
     else
         if [ $# -eq 0 ]; then
