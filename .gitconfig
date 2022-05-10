@@ -49,8 +49,9 @@
         git checkout -b "bugfix/$name";  \
     }; f";
 
+
+    b  = branch-name;
     ab = all-branches;
-    bn = breanch-name;
     cb = change-branch;
     nb = new-branch;
     mb = merge-branch;
@@ -104,9 +105,8 @@
 
     ## Status
     ##--------------------------------------------------------------------------
-    s    = status -s
-    sa   = status
-    suno = status -suno
+    s  = status -s
+    su = status -su
 
 
 [apply]
