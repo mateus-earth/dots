@@ -65,8 +65,10 @@ _vm() {
 ##------------------------------------------------------------------------------
 function dots()
 {
-    if [ $# -eq 1 ] && [ $1 == "gui" ]; then
-        gitui -d $HOME/.dots/ -w $HOME;
+    if [ $# -eq 1 ]; then 
+        if [ "$1" == "g" ] || [ $1 == "gui" ]; then
+            gitui -d $HOME/.dots/ -w $HOME;
+        fi;
     else
         if [ $# -eq 0 ]; then
             git --git-dir=$HOME/.dots/ --work-tree=$HOME "s";
