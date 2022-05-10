@@ -61,6 +61,25 @@ _vm() {
     vagrant ssh;
 }
 
+##
+## Utils
+##
+
+##------------------------------------------------------------------------------
+function reboot() 
+{
+    if [ "$(uname)" == "Darwin" ]; then
+        echo "Refusing to reboot the workstation...";
+        return;
+    fi;
+
+    sudo shutdown -r now;
+}
+
+
+##
+## Dots
+##
 
 ##------------------------------------------------------------------------------
 function dots()
