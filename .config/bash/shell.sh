@@ -106,7 +106,7 @@ dots config --local core.excludesfile "${HOME}/.config/.dots_gitignore";
 function version()
 {
     PROGRAM_NAME="dots";
-    PROGRAM_VERSION="4.0.0";
+    PROGRAM_VERSION="5.0.0";
     PROGRAM_AUTHOR="stdmatt - <stdmatt@pixelwizads.io>";
     PROGRAM_COPYRIGHT_OWNER="stdmatt";
     PROGRAM_COPYRIGHT_YEARS="2021, 2022";
