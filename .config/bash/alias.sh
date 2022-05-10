@@ -44,8 +44,10 @@ alias ps-tree="ps auxf";
 ## One Letter Aliases                                                          ##  
 ##-----------------------------------------------------------------------------##
 ##------------------------------------------------------------------------------
-alias d="dots ";
-alias e="_edit ";
-alias f="_files ";
-alias g="_git ";
-alias v="_vm ";
+alias d="dots";
+alias e="_edit";
+alias f="_files";
+alias g="_git";
+alias l="ls -aF";
+alias L="ls -alF";
+alias v="_vm";
