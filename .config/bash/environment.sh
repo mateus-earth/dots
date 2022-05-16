@@ -46,7 +46,7 @@ if [ $bashy_IsGNU ]; then
     PATH_COMPONENTS=(
         ## My stuff...
         "${HOME}/.bin"
-        "${HOME}/.bin/dots" 
+        "${HOME}/.bin/dots"
         "${HOME}/.local/bin"
         "${HOME}/.fzf/bin"
         ## Normal stuff...
@@ -59,15 +59,17 @@ if [ $bashy_IsGNU ]; then
         "/usr/bin"
         "/sbin"
         "/bin"
-    );    
+    );
 elif [ $bashy_IsMacOS ]; then
     PATH_COMPONENTS=(
         ## My stuff...
         "${HOME}/.bin"
-        "${HOME}/.bin/dots" 
+        "${HOME}/.bin/dots"
         "${HOME}/.local/bin"
         "${HOME}/.fzf/bin"
         "${HOME}/.cargo/bin"
+        ## @notice(java): OpenJDK needs to be put on path on macOS.
+        "/usr/local/opt/openjdk/bin"
         ## @notice(gnu-tools): Add all the gnu tools to the path
         ## so we can use them in mac without prefixing with g.
         ##    find /usr/local/Cellar -iname "*gnubin" | sort
