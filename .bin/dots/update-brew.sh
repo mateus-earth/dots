@@ -1,31 +1,34 @@
 #!/usr/bin/env bash
 
 ##
-## Packages 
+## Packages
 ##
 
 core_packages=(
-    gcc
-    automake
     atool
-    curl
+    automake
+    bash
     coreutils
+    curl
     diffutils
     ed
-    findutils
-    git
     exa
     fd
+    findutils
     gawk
+    gcc
+    git
+    gitui
     gnu-sed
     gnu-tar
     grep
     jq
     libtool
     lynx
-    node
     make
+    node
     peco
+    python3
     ripgrep
     tree
     vifm
@@ -33,38 +36,41 @@ core_packages=(
 );
 
 workstation_packages=(
+    alacritty
     cmake
+    google-chrome
     gource
     gtk+3
+    java
     librsvg
     ninja
     openssl@3
     pandoc
     rust
     rustup-init
-    vagrant
-    virtualbox
-    yarn
-    youtube-dl
-    alacritty
-    vlc
     telegram
     transmission
+    vagrant
+    visual-studio-code
+    virtualbox
+    vlc
+    yarn
+    youtube-dl
 )
 
 
 ##
-## Functions 
+## Functions
 ##
 
-function install_profile() 
+function install_profile()
 {
     arr="";
-    if [ "$1" == "--core" ]; then 
+    if [ "$1" == "--core" ]; then
         arr=${core_packages[@]};
-    elif [ "$1" == "--workstation" ]; then 
+    elif [ "$1" == "--workstation" ]; then
         arr=${workstation_packages[@]};
-    else 
+    else
         echo "Invalid flag: $1";
         exit 1;
     fi;
@@ -73,10 +79,10 @@ function install_profile()
     local brew_installed_txt="/tmp/brew_installed.txt";
     (brew list --formula -1) >  "$brew_installed_txt";
     (brew list --cask    -1) >> "$brew_installed_txt";
-    
+
     ## Iterate and install missing...
-    for item in ${arr[@]}; do 
-        if [ -n "$(grep "$item" "$brew_installed_txt")" ]; then 
+    for item in ${arr[@]}; do
+        if [ -n "$(grep "$item" "$brew_installed_txt")" ]; then
             echo "Already installed: ($item)";
         else
             echo "Installing: ($item)";
@@ -87,7 +93,7 @@ function install_profile()
 
 
 ##
-## Script 
+## Script
 ##
 
 ## Args
@@ -102,7 +108,7 @@ if [ -z "$(which brew)" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
 
     if [ "$(uname)" == "Linux" ]; then
-        sudo apt-get -y update; 
+        sudo apt-get -y update;
         sudo apt-get -y upgrade;
         sudo apt-get -y install build-essential procps curl file git;
 
