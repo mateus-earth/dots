@@ -10,7 +10,10 @@ fi
 
 ## Mac
 if [ "$(uname)" == "Darwin" ]; then
-    sudo softwareupdate -i -a;    
+    sudo softwareupdate -i -a;
+    if [ -z "$(xcode-select -p)" ]; then
+        xcode-select --install;
+    fi;
 elif [ "$(uname)" == "Linux" ]; then
     sudo apt-get -y update;
     sudo apt-get -y upgrade;
@@ -18,7 +21,7 @@ elif [ "$(uname)" == "Linux" ]; then
 fi;
 
 ## Brew
-${HOME}/.bin/dots/update-brew.sh --core --workstation 
+${HOME}/.bin/dots/update-brew.sh --core --workstation
 
 ## NPM
 npm install npm -g;
