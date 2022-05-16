@@ -66,7 +66,7 @@ _vm() {
 ##
 
 ##------------------------------------------------------------------------------
-function reboot() 
+function reboot()
 {
     if [ "$(uname)" == "Darwin" ]; then
         echo "Refusing to reboot the workstation...";
@@ -84,17 +84,19 @@ function reboot()
 ##------------------------------------------------------------------------------
 function dots()
 {
-    if [ $# -eq 1 ]; then 
+    local git_dir="$HOME/Projects/public/dots";
+
+    if [ $# -eq 1 ]; then
         if [ "$1" == "g" ] || [ $1 == "gui" ]; then
-            gitui -d $HOME/.dots/ -w $HOME;
+            gitui -d "$git_dir" -w $HOME;
         else
-            git --git-dir=$HOME/.dots/ --work-tree=$HOME $@; 
+            git --git-dir="$git_dir" --work-tree=$HOME $@;
         fi;
     else
         if [ $# -eq 0 ]; then
-            git --git-dir=$HOME/.dots/ --work-tree=$HOME "s";
+            git --git-dir="$git_dir" --work-tree=$HOME "s";
         else
-            git --git-dir=$HOME/.dots/ --work-tree=$HOME $@;
+            git --git-dir="$git_dir" --work-tree=$HOME $@;
         fi;
     fi;
 }
@@ -120,5 +122,3 @@ function version()
         "Check http://stdmatt.com for more :)"
     ));
 }
-
-
