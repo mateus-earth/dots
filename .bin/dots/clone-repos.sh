@@ -33,6 +33,12 @@ function clone_repo()
 ## Script
 ##
 
+if [ -z "$GITHUB_TOKEN_CLONE_ALL_REPOS" ]; then
+    echo "Missing Github Token (GITHUB_TOKEN_CLONE_ALL_REPOS)";
+    exit 1;
+fi;
+
+
 echo "Getting repo list from github.com...";
 curl                                                                \
      -H "Authorization: token $GITHUB_TOKEN_CLONE_ALL_REPOS" "$URL" \
