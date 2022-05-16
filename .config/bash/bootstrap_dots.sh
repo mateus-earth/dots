@@ -21,7 +21,7 @@ mkdir -p "$DOTS_PATH";
 git clone --bare https://github.com/mateus-earth/dots.git "$DOTS_PATH";
 
 echo "Syncing up...";
-_git checkout;
+_git checkout --force;
 
 echo "Changing url to ssh...";
 _git remote set-url origin git@github.com:mateus-earth/dots.git;
