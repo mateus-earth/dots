@@ -1,5 +1,5 @@
 test $ENVIRONMENT_SH_LOADED && return;
-ENVIRONMENT_SH_LOADED=1;
+export ENVIRONMENT_SH_LOADED=1;
 
 ##
 ## Important directories

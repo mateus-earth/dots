@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+DOTS_PATH="$HOME/Projects/public/dots";
+
 function _git() {
-    git --git-dir=$HOME/.dots/ --work-tree=$HOME "$@";
+    git --git-dir="$DOTS_PATH" --work-tree=$HOME "$@";
 }
 
 if [ "$(uname)" == "Linux" ]; then
@@ -15,9 +17,8 @@ if [ "$(uname)" == "Linux" ]; then
 fi;
 
 echo "Clonning dots...";
-dots_path="$HOME/Projects/public/dots";
-mkdir -p "$dots_path";
-git clone --bare https://github.com/mateus-earth/dots.git "$dots_path";
+mkdir -p "$DOTS_PATH";
+git clone --bare https://github.com/mateus-earth/dots.git "$DOTS_PATH";
 
 echo "Syncing up...";
 _git checkout;
