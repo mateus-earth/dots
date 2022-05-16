@@ -1,6 +1,9 @@
 test $BASH_OPTIONS_SH_LOADED && return;
 BASH_OPTIONS_SH_LOADED=1;
 
+##------------------------------------------------------------------------------
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 ##
 ## Inspired by:
 ##    https://github.com/stdmatt/bash-sensible/blob/master/sensible.bash
