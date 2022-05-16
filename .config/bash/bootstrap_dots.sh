@@ -15,7 +15,9 @@ if [ "$(uname)" == "Linux" ]; then
 fi;
 
 echo "Clonning dots...";
-git clone --bare https://github.com/mateus-earth/dots.git $HOME/.dots;
+dots_path="$HOME/Projects/public/dots";
+mkdir -p "$dots_path";
+git clone --bare https://github.com/mateus-earth/dots.git "$dots_path";
 
 echo "Syncing up...";
 _git checkout;
