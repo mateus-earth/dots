@@ -40,6 +40,7 @@ workstation_packages=(
     cmake
     google-chrome
     gource
+    godot-mono
     gtk+3
     java
     librsvg
