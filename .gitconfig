@@ -108,6 +108,8 @@
     s  = status -s
     su = status -su
 
+    g = "!(gitui)"
+
 
 [apply]
     whitespace = fix
