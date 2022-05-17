@@ -6,8 +6,10 @@
 
 ## All history...
 .*_history
+
 ## Private things...
 *private*
+
 ## The bare repo.
 .dots/
 
@@ -16,6 +18,9 @@
 .local/share/powershell/
 .local/lib/shlib/
 
+.cargo
+.vscode
+
 ## More unix shit...
 .ssh/
 .viminfo
@@ -23,6 +28,10 @@
 .lesshst
 .bash_sessions/*
 .terminfo/*
+
+## Cosmic Pig 
+.cosmic
+
 
 ##
 ## Config dirs...
