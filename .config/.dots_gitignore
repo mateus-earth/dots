@@ -17,12 +17,15 @@
 .local/share/nvim/
 .local/share/powershell/
 .local/lib/shlib/
+.config/nvim/plugin/
 
-.cargo
-.vscode
+.ssh/
+.gem/
+.cargo/
+.vscode/
+.nuget/
 
 ## More unix shit...
-.ssh/
 .viminfo
 .wget-hsts
 .lesshst
