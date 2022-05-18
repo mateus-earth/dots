@@ -1,21 +1,23 @@
 test $SHELL_SH_LOADED && return;
-SHELL_SH_LOADED=1;
+export SHELL_SH_LOADED=1;
 
 ##
 ## Single letter functions.
 ##
 
 ##------------------------------------------------------------------------------
-_edit() {
+function _edit() 
+{
     if [ $# -eq 0 ]; then
-        $VISUAL ".";   ## Edit current path...
+        $VISUAL "."; ## Edit current path...
     else
-        $VISUAL $@; ## Open with the given args...
+        $VISUAL $@;  ## Open with the given args...
     fi;
 }
 
 ##------------------------------------------------------------------------------
-_git() {
+function _git() 
+{
     if [ $# -eq 0 ]; then
         git s;   ## git status by default.
     else
@@ -25,7 +27,8 @@ _git() {
 
 
 ##------------------------------------------------------------------------------
-_files() {
+function _files() 
+{
     ## Open the Filesystem Manager into a given path.
     ## If no path was given open the current dir.
     local target_path="$1";
@@ -49,7 +52,8 @@ _files() {
 
 
 ##------------------------------------------------------------------------------
-_vm() {
+function _vm() 
+{
     local value="$1";
     if [ -z "$value" ]; then
         value="default";
@@ -60,6 +64,7 @@ _vm() {
     vagrant up;
     vagrant ssh;
 }
+
 
 ##
 ## Utils
@@ -85,7 +90,6 @@ function reboot()
 function dots()
 {
     local git_dir="$HOME/Projects/public/dots";
-
     if [ $# -eq 1 ]; then
         if [ "$1" == "g" ] || [ $1 == "gui" ]; then
             gitui -d "$git_dir" -w $HOME;
@@ -119,6 +123,6 @@ function version()
         "${PROGRAM_NAME} - ${PROGRAM_VERSION} - ${PROGRAM_AUTHOR}"
         "Copyright (c) ${PROGRAM_COPYRIGHT_YEARS} - ${PROGRAM_COPYRIGHT_OWNER}"
         "This is a free software (${PROGRAM_LICENSE}) - Share/Hack it"
-        "Check http://stdmatt.com for more :)"
+        "Check http://mateus.earth for more :)"
     ));
 }
