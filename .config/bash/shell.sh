@@ -1,6 +1,3 @@
-test $SHELL_SH_LOADED && return;
-export SHELL_SH_LOADED=1;
-
 ##
 ## Single letter functions.
 ##

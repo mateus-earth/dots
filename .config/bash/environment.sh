@@ -1,5 +1,3 @@
-test $ENVIRONMENT_SH_LOADED && return;
-export ENVIRONMENT_SH_LOADED=1;
 
 ##
 ## Important directories

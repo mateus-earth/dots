@@ -1,6 +1,3 @@
-test $BASHY_SH_LOADED && return;
-BASHY_SH_LOADED=1;
-
 export bashy_Platform=$(uname);
 export bashy_IsGNU=$(test $bashy_Platform == "Linux" && echo "1");
 export bashy_IsMacOS=$(test $bashy_Platform == "Darwin" && echo "1");
