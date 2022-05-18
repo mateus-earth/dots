@@ -8,21 +8,21 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     exit 1;
 fi
 
-## Mac
+## macOS
 if [ "$(uname)" == "Darwin" ]; then
     sudo softwareupdate -i -a;
     if [ -z "$(xcode-select -p)" ]; then
         xcode-select --install;
     fi;
+## GNU.
 elif [ "$(uname)" == "Linux" ]; then
     sudo apt-get -y update;
     sudo apt-get -y upgrade;
     sudo apt-get -y dist-upgrade;
 fi;
 
-## Brew
-${HOME}/.bin/dots/update-brew.sh --core --workstation
-
-## NPM
-npm install npm -g;
-npm update      -g;
+##
+${HOME}/.bin/dots/update-brew.sh --core $FLAG_WORKSTATION;
+${HOME}/.bin/dots/update-pip.sh  --core $FLAG_WORKSTATION;
+${HOME}/.bin/dots/update-ruby.sh --core $FLAG_WORKSTATION;
+${HOME}/.bin/dots/update-node.sh --core $FLAG_WORKSTATION;

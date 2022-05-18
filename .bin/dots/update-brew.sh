@@ -107,7 +107,6 @@ fi;
 ## Ensure brew...
 if [ -z "$(which brew)" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
-
     if [ "$(uname)" == "Linux" ]; then
         sudo apt-get -y update;
         sudo apt-get -y upgrade;
