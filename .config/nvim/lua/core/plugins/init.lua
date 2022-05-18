@@ -34,26 +34,15 @@ packer.init {
         end,
     },
 }
-
 --   use "kyazdani42/nvim-tree.lua"
 --   use "akinsho/toggleterm.nvim"
 --   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-
---   -- cmp plugins
---   use "hrsh7th/nvim-cmp" -- The completion plugin
---   use "hrsh7th/cmp-buffer" -- buffer completions
---   use "hrsh7th/cmp-path" -- path completions
---   use "hrsh7th/cmp-cmdline" -- cmdline completions
---   use "saadparwaiz1/cmp_luasnip" -- snippet completions
---   use "hrsh7th/cmp-nvim-lsp"
 
 --   -- snippets
 --   use "L3MON4D3/LuaSnip" --snippet engine
 --   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 --   -- LSP
---   use "neovim/nvim-lspconfig" -- enable LSP
---   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 --   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 --   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
@@ -85,8 +74,11 @@ packer.startup(
         use "lunarvim/colorschemes";
 
         -- Code Utils
-        use "numToStr/Comment.nvim"; -- Toggle comment
-        use { "nvim-treesitter/nvim-treesitter" }; -- Tree Sitter
+        use "numToStr/Comment.nvim";            -- Toggle comment.
+        use  "nvim-treesitter/nvim-treesitter"; -- Tree Sitter.
+        use "neovim/nvim-lspconfig";            -- Enable LSP.
+        use "williamboman/nvim-lsp-installer";  -- Language server installer.
+
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
@@ -98,7 +90,7 @@ packer.startup(
 
 -- @notice: Needs to be the first to be able to cache the plugins.
 -- require "plugins.impatient";
---
+
 require "core.plugins.alpha";
 require "core.plugins.comment";
 require "core.plugins.bufferline";
