@@ -58,7 +58,7 @@
                     },
                     "to": [
                         {
-                            "apple_vendor_keyboard_key_code": "mission_control"
+                            "key_code": "f3"
                         }
                     ]
                 },
@@ -68,7 +68,7 @@
                     },
                     "to": [
                         {
-                            "apple_vendor_keyboard_key_code": "spotlight"
+                            "key_code": "f4"
                         }
                     ]
                 },
@@ -78,7 +78,7 @@
                     },
                     "to": [
                         {
-                            "consumer_key_code": "dictation"
+                            "apple_vendor_top_case_key_code": "illumination_down"
                         }
                     ]
                 },
@@ -88,7 +88,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f6"
+                            "apple_vendor_top_case_key_code": "illumination_up"
                         }
                     ]
                 },
@@ -159,16 +159,6 @@
             },
             "selected": true,
             "simple_modifications": [
-                // {
-                //     "from": {
-                //         "key_code": "grave_accent_and_tilde"
-                //     },
-                //     "to": [
-                //         {
-                //             "key_code": "non_us_backslash"
-                //         }
-                //     ]
-                // },
                 {
                     "from": {
                         "key_code": "caps_lock"
