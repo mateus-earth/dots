@@ -1,4 +1,3 @@
-
 local fn = vim.fn
 
 -- Automatically install packer
@@ -16,7 +15,7 @@ end
 vim.cmd [[
     augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost init.lua source <afile> | PackerSync
     augroup end
 ]]
 
@@ -75,10 +74,10 @@ packer.startup(
 
         -- Code Utils
         use "numToStr/Comment.nvim";            -- Toggle comment.
-        use  "nvim-treesitter/nvim-treesitter"; -- Tree Sitter.
+        use "nvim-treesitter/nvim-treesitter";  -- Tree Sitter.
         use "neovim/nvim-lspconfig";            -- Enable LSP.
         use "williamboman/nvim-lsp-installer";  -- Language server installer.
-
+        use {'neoclide/coc.nvim', branch = 'release'}
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins

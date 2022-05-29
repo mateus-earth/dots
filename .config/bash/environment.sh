@@ -12,6 +12,7 @@ export NVIM_DIR="${CONFIG_DIR}/nvim";
 [ -z "$TMPDIR" ] && TMPDIR=/tmp;
 export TMPDIR;
 
+
 ##
 ## Shell
 ##
