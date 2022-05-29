@@ -1,4 +1,12 @@
 ##
+## Imports 
+##
+
+##------------------------------------------------------------------------------
+. "${HOME}/.cosmic/libs/shlib/main.sh"; 
+
+
+##
 ## Single letter functions.
 ##
 
@@ -71,8 +79,10 @@ function _vm()
 function reboot()
 {
     if [ "$(uname)" == "Darwin" ]; then
-        echo "Refusing to reboot the workstation...";
-        return;
+        if [ -z "$(sh_find_arg "--force" $@)" ]; then
+            echo "Refusing to reboot the workstation...";
+            return;
+        fi;
     fi;
 
     sudo shutdown -r now;
@@ -104,6 +114,7 @@ function dots()
 
 dots config --local status.showUntrackedFiles no;
 dots config --local core.excludesfile "${HOME}/.config/.dots_gitignore";
+
 
 ##------------------------------------------------------------------------------
 function version()
