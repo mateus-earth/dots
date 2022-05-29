@@ -4,35 +4,52 @@
 ## Packages
 ##
 
-core_packages=(
-    atool
+gnu_packages=(
+    autoconf 
     automake
     bash
+    binutils 
+    coreutils 
+    diffutils 
+    ed 
+    findutils 
+    flex 
+    gawk 
+    gcc
+    gnu-indent 
+    gnu-sed 
+    gnu-tar 
+    gnu-which 
+    gpatch 
+    grep 
+    gzip 
+    less 
+    m4 
+    make 
+    nano 
+    screen 
+    watch
+    wdiff 
+    tree
+    wget
+);
+
+core_packages=(
+    atool
     coreutils
     curl
-    diffutils
-    ed
     exa
     fd
-    findutils
-    gawk
-    gcc
     git
     gitui
-    gnu-sed
-    gnu-tar
-    grep
     jq
     libtool
     lynx
-    make
     node
     peco
     python3
     ripgrep
-    tree
     vifm
-    wget
 );
 
 workstation_packages=(
@@ -57,7 +74,7 @@ workstation_packages=(
     vlc
     yarn
     youtube-dl
-)
+);
 
 
 ##
@@ -71,6 +88,8 @@ function install_profile()
         arr=${core_packages[@]};
     elif [ "$1" == "--workstation" ]; then
         arr=${workstation_packages[@]};
+    elif [ "$1" == "--gnu" ]; then 
+        arr=${gnu_packages[@]};
     else
         echo "Invalid flag: $1";
         exit 1;
