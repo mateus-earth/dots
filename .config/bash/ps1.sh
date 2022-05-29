@@ -21,7 +21,7 @@ function _gen_ps1()
     done;
 
     # PS1="(${cwd}) ($user_info}) ${spaces_len} (${date_time})\n:)";
-    PS1="(${cwd}) ${spaces} (${user_info}) (${date_time})\n:)";
+    PS1="(${cwd}) ${spaces} (${user_info}) (${date_time})\n";
 }
 
 
