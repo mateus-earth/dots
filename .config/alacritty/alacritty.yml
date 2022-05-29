@@ -29,12 +29,6 @@ font:
   size: 17.0
 
 ##------------------------------------------------------------------------------
-cursor:
-  style:
-    shape: Block # @debug - pwsh - This isn't correctly set with vim mode...
-    blinking: On
-
-##------------------------------------------------------------------------------
 # shell:
   # program: bash
   # args:
