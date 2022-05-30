@@ -25,17 +25,6 @@ function _edit()
 }
 
 ##------------------------------------------------------------------------------
-function _git() 
-{
-    if [ $# -eq 0 ]; then
-        git s;   ## git status by default.
-    else
-        git $@;  ## Just pass the args...
-    fi;
-}
-
-
-##------------------------------------------------------------------------------
 function _files() 
 {
     ## Open the Filesystem Manager into a given path.
@@ -61,6 +50,14 @@ function _files()
 
 
 ##------------------------------------------------------------------------------
+function _git() 
+{
+    if [ $# -eq 0 ]; then
+        git s;   ## git status by default.
+    else
+        git $@;  ## Just pass the args...
+    fi;
+}
 function _vm() 
 {
     local value="$1";
