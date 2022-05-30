@@ -37,6 +37,7 @@ VirtualBox*/
 .cargo/
 .vscode/
 .nuget/
+.emsdk/
 
 ## More unix shit...
 .viminfo
