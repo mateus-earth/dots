@@ -89,6 +89,11 @@ function reboot()
     sudo shutdown -r now;
 }
 
+##------------------------------------------------------------------------------
+function mkexe()
+{
+    chmod 744 $@;
+}
 
 ##
 ## Dots
