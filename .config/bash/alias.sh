@@ -52,6 +52,7 @@ alias d="dots";
 alias e="_edit";
 alias f="_files";
 alias g="_git";
+alias j="_journal";
 alias l="ls -aF";
 alias L="ls -alF";
 alias v="_vm";
