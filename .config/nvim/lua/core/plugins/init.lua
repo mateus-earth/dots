@@ -67,6 +67,7 @@ packer.startup(
         use "moll/vim-bbye";
         use "folke/which-key.nvim";
         use "nvim-telescope/telescope.nvim";
+        use "kyazdani42/nvim-tree.lua";
 
         -- Themes
         use "tomasiser/vim-code-dark";
@@ -98,4 +99,5 @@ require "core.plugins.indent-blankline";
 require "core.plugins.which-key";
 require "core.plugins.treesitter";
 require "core.plugins.telescope";
+require "core.plugins.nvim-tree";
 require "core.plugins.themes";
