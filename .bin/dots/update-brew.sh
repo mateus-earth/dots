@@ -88,11 +88,11 @@ function install_profile()
 {
     arr="";
     if [ "$1" == "--core" ]; then
-        arr=${core_packages[@]};
+        arr=("${core_packages[@]}");
     elif [ "$1" == "--workstation" ]; then
-        arr=${workstation_packages[@]};
+        arr=("${workstation_packages[@]}");
     elif [ "$1" == "--gnu" ]; then 
-        arr=${gnu_packages[@]};
+        arr=("${gnu_packages[@]}");
     else
         echo "Invalid flag: $1";
         exit 1;
@@ -104,7 +104,7 @@ function install_profile()
     (brew list --cask    -1) >> "$brew_installed_txt";
 
     ## Iterate and install missing...
-    for item in ${arr[@]}; do
+    for item in "${arr[@]}"; do
         if [ -n "$(grep "$item" "$brew_installed_txt")" ]; then
             echo "Already installed: ($item)";
         else
@@ -120,9 +120,9 @@ function install_profile()
 ##
 
 ## Args
-args=$@;
+args=("$@");
 if [ $# -eq 0 ]; then
-    echo -e "Usage:\n    update-brew.sh --core --workstation";
+    echo -e "Usage:\n    update-brew.sh --gnu --core --workstation";
     exit 1;
 fi;
 
@@ -142,8 +142,8 @@ fi;
 brew update;
 brew upgrade;
 
-for arg in ${args[@]}; do
-    install_profile $arg;
+for arg in "${args[@]}"; do
+    install_profile "$arg";
 done;
 
 brew cleanup;
