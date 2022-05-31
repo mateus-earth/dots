@@ -36,6 +36,7 @@ gnu_packages=(
 
 core_packages=(
     atool
+    bat
     coreutils
     curl
     exa
@@ -48,6 +49,7 @@ core_packages=(
     node
     peco
     python3
+    shellcheck
     ripgrep
     vifm
 );
@@ -74,6 +76,7 @@ workstation_packages=(
     vlc
     yarn
     youtube-dl
+    yt-dlp/taps/yt-dlp
 );
 
 
