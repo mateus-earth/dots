@@ -1,3 +1,10 @@
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+    return
+end
+
+
 local fn = vim.fn
 
 -- Automatically install packer
@@ -19,11 +26,13 @@ vim.cmd [[
     augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-    return
-end
+vim.cmd [[
+    augroup lua_auto_reload
+    autocmd!
+    autocmd BufWritePost *.lua source <afile>
+    augroup end
+]]
+
 
 -- Have packer use a popup window
 packer.init {
@@ -33,71 +42,72 @@ packer.init {
         end,
     },
 }
---   use "kyazdani42/nvim-tree.lua"
---   use "akinsho/toggleterm.nvim"
---   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-
---   -- snippets
---   use "L3MON4D3/LuaSnip" --snippet engine
---   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
 --   -- LSP
---   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
---   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+--   use { "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+--   use { "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+--   use { "JoosepAlviste/nvim-ts-context-commentstring"
 
+packer.startup(function(use)
+    use { "wbthomason/packer.nvim" }; -- Have packer manage itself
 
---   use "JoosepAlviste/nvim-ts-context-commentstring"
+    -- Core Packages
+    --   (other plugins depends on them mostly...)
+    use { "nvim-lua/popup.nvim"          };
+    use { "nvim-lua/plenary.nvim"        };
+    use { "kyazdani42/nvim-web-devicons" };
 
+    -- Editor
+    --   (features that change the program experience as whole)
+    use { "goolord/alpha-nvim"                  }; -- Main Page.
+    use { "akinsho/bufferline.nvim"             }; -- Like the "TabBar" in another editors.
+    use { "nvim-lualine/lualine.nvim"           }; -- Line bellow the editor.
+    use { "moll/vim-bbye"                       }; -- Delete buffers (close files) without closing your windows
+    use { "mcauley-penney/tidy.nvim"            }; -- Clean trailing spaces and newlines.
+    use { "folke/which-key.nvim"                };
+    use { "nvim-telescope/telescope.nvim"       };
+    use { "kyazdani42/nvim-tree.lua"            }; -- Solution Explorer
+    use {"akinsho/toggleterm.nvim",
+        tag = 'v1.*'                            }; -- Terminal
 
--- Install your plugins here
-packer.startup(
-    function(use)
-        use "wbthomason/packer.nvim"; -- Have packer manage itself
+    -- Themes
+    use { "tomasiser/vim-code-dark" };
+    use { "lunarvim/colorschemes"   };
 
-        -- Core Packages - (other plugins depends on them mostly...)
-        use "nvim-lua/popup.nvim";
-        use "nvim-lua/plenary.nvim";
-        use "kyazdani42/nvim-web-devicons";
+    -- Code Utils
+    --   (plugins that improve editing/programming experience).
+    use { "numToStr/Comment.nvim" };            -- Toggle comment.
 
-        -- Editor
-        use "goolord/alpha-nvim";
-        use "akinsho/bufferline.nvim";             -- Like the "TabBar" in another editors.
-        use 'nvim-lualine/lualine.nvim';           -- Line bellow the editor.
-        use "lukas-reineke/indent-blankline.nvim"; -- Make the indentation colorful.
-        use "moll/vim-bbye";
-        use "folke/which-key.nvim";
-        use "nvim-telescope/telescope.nvim";
-        use "kyazdani42/nvim-tree.lua";
+    use { "neovim/nvim-lspconfig" };            -- Enable LSP.
+    use { "williamboman/nvim-lsp-installer" };  -- Language server installer.
+    use {                                       -- Completion
+        "neoclide/coc.nvim",
+        branch = "release"
+    }
 
-        -- Themes
-        use "tomasiser/vim-code-dark";
-        use "lunarvim/colorschemes";
+    use {                                       -- Tree Sitter.
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
-        -- Code Utils
-        use "numToStr/Comment.nvim";            -- Toggle comment.
-        use "nvim-treesitter/nvim-treesitter";  -- Tree Sitter.
-        use "neovim/nvim-lspconfig";            -- Enable LSP.
-        use "williamboman/nvim-lsp-installer";  -- Language server installer.
-        use {'neoclide/coc.nvim', branch = 'release'}
+    use { "p00f/nvim-ts-rainbow" }; -- Colorize the brackets...
 
-        -- Automatically set up your configuration after cloning packer.nvim
-        -- Put this at the end after all plugins
-        if PACKER_BOOTSTRAP then
-            require("packer").sync()
-        end
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if PACKER_BOOTSTRAP then
+        require("packer").sync()
     end
-)
+end)
 
--- @notice: Needs to be the first to be able to cache the plugins.
--- require "plugins.impatient";
+
+require "core.plugins.comment";
+require "core.plugins.nvim-tree";
 
 require "core.plugins.alpha";
-require "core.plugins.comment";
 require "core.plugins.bufferline";
 require "core.plugins.lualine";
-require "core.plugins.indent-blankline";
-require "core.plugins.which-key";
+require "core.plugins.toggleterm";
 require "core.plugins.treesitter";
 require "core.plugins.telescope";
-require "core.plugins.nvim-tree";
 require "core.plugins.themes";
+
+require "core.plugins.which-key";

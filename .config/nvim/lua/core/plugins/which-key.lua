@@ -7,7 +7,7 @@ local setup = {
     plugins = {
         marks     = true, -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-        
+
         spelling = {
             enabled     = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
             suggestions = 20,   -- how many suggestions should be shown in the list?
@@ -17,12 +17,12 @@ local setup = {
         -- No actual key bindings are created
         presets = {
             operators    = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-            motions      = true,  -- adds help for motions
-            text_objects = true,  -- help for text objects triggered after entering an operator
-            windows      = true,  -- default bindings on <c-w>
-            nav          = true,  -- misc bindings to work with windows
-            z            = true,  -- bindings for folds, spelling and others prefixed with z
-            g            = true,  -- bindings for prefixed with g
+            motions      = false,  -- adds help for motions
+            text_objects = false,  -- help for text objects triggered after entering an operator
+            windows      = false,  -- default bindings on <c-w>
+            nav          = false,  -- misc bindings to work with windows
+            z            = false,  -- bindings for folds, spelling and others prefixed with z
+            g            = false,  -- bindings for prefixed with g
         },
     },
 
@@ -44,13 +44,13 @@ local setup = {
     },
 
     window = {
-        border   = "double", -- none, single, double, shadow
+        border   = _G._my_opt.border,
+        winblend = 0;
+
         position = "bottom", -- bottom, top
-        
+
         margin  = { 0, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
         padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-
-        winblend = 0,
     },
 
     layout = {
@@ -66,8 +66,8 @@ local setup = {
 }
 
 local opts = {
-    mode    = "n", -- NORMAL mode
     prefix  = "<leader>",
+    mode    = "n",  -- NORMAL mode
     buffer  = nil,  -- Global mappings. Specify a buffer number for buffer local mappings
     silent  = true, -- use `silent` when creating keymaps
     noremap = true, -- use `noremap` when creating keymaps
@@ -75,31 +75,42 @@ local opts = {
 }
 
 local mappings = {
-    ["e"] = { 
+    -- Editor
+    e = {
         name = "Editor",
+        c = { "<cmd>Bdelete!<CR>",  "close"      },
         r = { "<cmd>luafile %<CR>", "reload lua" },
-        s = { "<cmd>w!<CR>", "save"  },
-        c = { "<cmd>Bdelete!<CR>", "close" },
+        w = { "<cmd>w!<CR>",        "save"       },
+        o = { "<cmd>e<cr>",         "open"       },
     },
-    
-    ["f"] = {
+
+    -- Files
+    f = {
         "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "Find files",
     },
 
+    -- Git
+    g = {
+        "<cmd>lua _G.hack_terminal_gitui:toggle()<CR>",
+        "git",
+    },
+
+    -- Packer
     p = {
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
         i = { "<cmd>PackerInstall<cr>", "Install" },
-        s = { "<cmd>PackerSync<cr>",    "Sync" },
-        S = { "<cmd>PackerStatus<cr>",  "Status" },
-        u = { "<cmd>PackerUpdate<cr>",  "Update" },
+        s = { "<cmd>PackerSync<cr>",    "Sync"    },
+        S = { "<cmd>PackerStatus<cr>",  "Status"  },
+        u = { "<cmd>PackerUpdate<cr>",  "Update"  },
     },
-    
+
+    -- Search
     s = {
         name = "Search",
 
-        t = { "<cmd>Telescope colorscheme<cr>",  "themes"    },
+        t = { "<cmd>Telescope colorscheme<cr>",  "chemes"    },
         h = { "<cmd>Telescope help_tags<cr>",    "vim-help"  },
         m = { "<cmd>Telescope man_pages<cr>",    "man-pages" },
         k = { "<cmd>Telescope keymaps<cr>",      "keymaps"   },

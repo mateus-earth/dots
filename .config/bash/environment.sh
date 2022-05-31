@@ -21,7 +21,9 @@ export TMPDIR;
 ##
 
 ##------------------------------------------------------------------------------
-export TERM="xterm-256color" ## getting proper colors
+## Terminal
+## https://gist.github.com/sabinpocris/872bc3a557fbc448c2c9d95b62ede30d
+export TERM="screen-256color";
 
 ## History
 export HISTCONTROL=ignoreboth:erasedups
