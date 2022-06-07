@@ -5,31 +5,31 @@
 ##
 
 gnu_packages=(
-    autoconf 
+    autoconf
     automake
     bash
-    binutils 
-    coreutils 
-    diffutils 
-    ed 
-    findutils 
-    flex 
-    gawk 
+    binutils
+    coreutils
+    diffutils
+    ed
+    findutils
+    flex
+    gawk
     gcc
-    gnu-indent 
-    gnu-sed 
-    gnu-tar 
-    gnu-which 
-    gpatch 
-    grep 
-    gzip 
-    less 
-    m4 
-    make 
-    nano 
-    screen 
+    gnu-indent
+    gnu-sed
+    gnu-tar
+    gnu-which
+    gpatch
+    grep
+    gzip
+    less
+    m4
+    make
+    nano
+    screen
     watch
-    wdiff 
+    wdiff
     tree
     wget
 );
@@ -52,6 +52,7 @@ core_packages=(
     shellcheck
     ripgrep
     vifm
+    ccls
 );
 
 workstation_packages=(
@@ -91,7 +92,7 @@ function install_profile()
         arr=("${core_packages[@]}");
     elif [ "$1" == "--workstation" ]; then
         arr=("${workstation_packages[@]}");
-    elif [ "$1" == "--gnu" ]; then 
+    elif [ "$1" == "--gnu" ]; then
         arr=("${gnu_packages[@]}");
     else
         echo "Invalid flag: $1";
