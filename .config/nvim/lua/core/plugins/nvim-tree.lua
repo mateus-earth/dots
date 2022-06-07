@@ -1,5 +1,10 @@
-require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
-    auto_reload_on_write     = true,
+local status_ok, nvim_tree = pcall(require, "nvim-tree")
+if not status_ok then
+    return
+end
+
+nvim_tree.setup {
+    auto_reload_on_write    = true,
     create_in_closed_folder = false,
 
     disable_netrw = false,
@@ -105,12 +110,12 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     },
 
     ignore_ft_on_setup = {},
-   
+
     system_open = {
         cmd = "",
         args = {},
     },
-    
+
     diagnostics = {
         enable = false,
         show_on_dirs = false,
@@ -146,8 +151,8 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
             resize_window = true,
             window_picker = {
                 enable = true,
-chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-exclude = {
+                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+                exclude = {
                     filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
                     buftype = { "nofile", "terminal", "help" },
                 },
@@ -155,7 +160,7 @@ exclude = {
         },
         remove_file = {
             close_window = true,
-},
+        },
     },
     trash = {
         cmd = "trash",
@@ -165,7 +170,7 @@ exclude = {
         prefix = "[FILTER]: ",
         always_show_folders = true,
     },
-   
+
     log = {
         enable = false,
         truncate = false,

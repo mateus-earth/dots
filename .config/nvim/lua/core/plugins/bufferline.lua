@@ -7,11 +7,11 @@ bufferline.setup {
     options = {
         mode    = "buffers", -- set to "tabs" to only show tabpages instead
         numbers = "ordinal", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-        
-        close_command        = "Bdelete! %d", 
+
+        close_command        = "Bdelete! %d",
         right_mouse_command  = "Bdelete! %d",
-        left_mouse_command   = "buffer %d", 
-        middle_mouse_command = nil, 
+        left_mouse_command   = "buffer %d",
+        middle_mouse_command = nil,
 
         indicator_icon     = "▎",
         buffer_close_icon  = '',

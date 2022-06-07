@@ -10,7 +10,7 @@
 ## Private things...
 *private*
 
-## Project Folder 
+## Project Folder
 Projects/
 
 ## OS Folders
@@ -31,6 +31,7 @@ VirtualBox*/
 .local/lib/shlib/
 .config/nvim/plugin/
 .config/karabiner/automatic_backups/
+.config/coc/
 
 .ssh/
 .gem/
@@ -46,7 +47,7 @@ VirtualBox*/
 .bash_sessions/*
 .terminfo/*
 
-## Cosmic Pig 
+## Cosmic Pig
 .cosmic
 
 
@@ -86,4 +87,3 @@ fzf/*.fish
 .DS_Store
 .CFUserText*
 .Trash
-
