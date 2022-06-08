@@ -78,43 +78,33 @@ local mappings = {
     -- Editor
     e = {
         name = "Editor",
-        c = { "<cmd>Bdelete!<CR>",  "close"      },
-        r = { "<cmd>luafile %<CR>", "reload lua" },
-        w = { "<cmd>w!<CR>",        "save"       },
-        o = { "<cmd>e<cr>",         "open"       },
+        c = { "<cmd>Bdelete!<CR>",         "close"        },
+        s = { "<cmd>NvimTreeFindFile<CR>", "show in tree" },
+        w = { "<cmd>w!<CR>",               "save"         },
+        o = { "<cmd>e<cr>",                "open"         },
     },
 
     -- Files
     f = {
         "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "Find files",
+        "Find",
     },
 
     -- Git
     g = {
         "<cmd>lua _G.hack_terminal_gitui:toggle()<CR>",
-        "git",
+        "Git",
     },
 
-    -- Packer
-    p = {
-        name = "Packer",
-        c = { "<cmd>PackerCompile<cr>", "Compile" },
-        i = { "<cmd>PackerInstall<cr>", "Install" },
-        s = { "<cmd>PackerSync<cr>",    "Sync"    },
-        S = { "<cmd>PackerStatus<cr>",  "Status"  },
-        u = { "<cmd>PackerUpdate<cr>",  "Update"  },
-    },
-
-    -- Search
-    s = {
-        name = "Search",
+    -- Telescope
+    t = {
+        name = "Telescope",
 
         t = { "<cmd>Telescope colorscheme<cr>",  "chemes"    },
         h = { "<cmd>Telescope help_tags<cr>",    "vim-help"  },
         m = { "<cmd>Telescope man_pages<cr>",    "man-pages" },
         k = { "<cmd>Telescope keymaps<cr>",      "keymaps"   },
-        C = { "<cmd>Telescope commands<cr>",     "commands"  },
+        c = { "<cmd>Telescope commands<cr>",     "commands"  },
     },
 }
 
