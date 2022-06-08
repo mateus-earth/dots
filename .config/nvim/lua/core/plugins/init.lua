@@ -52,9 +52,11 @@ packer.startup(function(use)
 
     -- Core Packages
     --   (other plugins depends on them mostly...)
-    use { "nvim-lua/popup.nvim"          };
-    use { "nvim-lua/plenary.nvim"        };
-    use { "kyazdani42/nvim-web-devicons" };
+    use {
+        "nvim-lua/popup.nvim",          
+        "nvim-lua/plenary.nvim",        
+        "kyazdani42/nvim-web-devicons",
+    };
 
     -- Editor
     --   (features that change the program experience as whole)
@@ -66,31 +68,33 @@ packer.startup(function(use)
     use { "folke/which-key.nvim"                };
     use { "nvim-telescope/telescope.nvim"       };
     use { "kyazdani42/nvim-tree.lua"            }; -- Solution Explorer
-    use {"akinsho/toggleterm.nvim",
-        tag = 'v1.*'                            }; -- Terminal
+    use { "akinsho/toggleterm.nvim",
+          tag = 'v1.*'                          }; -- Terminal
 
     -- Themes
     use { "tomasiser/vim-code-dark" };
-    use { "lunarvim/colorschemes"   };
 
     -- Code Utils
     --   (plugins that improve editing/programming experience).
-    use { "numToStr/Comment.nvim" };            -- Toggle comment.
+    use { 
+        "numToStr/Comment.nvim",    -- Toggle comment.
+        "junegunn/vim-easy-align",  -- Code Align.
+        "folke/trouble.nvim",       -- A pretty list for showing diagnostics.
+        "p00f/nvim-ts-rainbow",     -- Colorize the brackets...
+    }; 
 
-    use { "neovim/nvim-lspconfig" };            -- Enable LSP.
-    use { "williamboman/nvim-lsp-installer" };  -- Language server installer.
-    use {                                       -- Completion
-        "neoclide/coc.nvim",
-        branch = "release"
-    }
+    -- Tree Sitter.
+    use { 
+        'nvim-treesitter/nvim-treesitter', 
+        run    = ':TSUpdate' 
+    }; 
 
-    use {                                       -- Tree Sitter.
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-
-    use { "p00f/nvim-ts-rainbow" }; -- Colorize the brackets...
-
+    -- LSP
+    use {
+        "williamboman/nvim-lsp-installer",
+        "neovim/nvim-lspconfig",
+    };
+    
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
@@ -99,14 +103,17 @@ packer.startup(function(use)
 end)
 
 
+require "core.plugins.lsp";
 require "core.plugins.comment";
 require "core.plugins.nvim-tree";
+
+require "core.plugins.treesitter";
 
 require "core.plugins.alpha";
 require "core.plugins.bufferline";
 require "core.plugins.lualine";
 require "core.plugins.toggleterm";
-require "core.plugins.treesitter";
+require "core.plugins.trouble"
 require "core.plugins.telescope";
 require "core.plugins.themes";
 
