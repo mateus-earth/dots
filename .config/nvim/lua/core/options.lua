@@ -44,12 +44,14 @@ set.list = true
 set.listchars:append("space:⋅")
 set.shortmess:append("c");
 
+
 --
 -- Vim Globals
 --
 --------------------------------------------------------------------------------
 vim.g.python3_host_prog    = "/usr/local/bin/python3";
 vim.g.loaded_perl_provider = 0;
+
 
 --
 -- My Options

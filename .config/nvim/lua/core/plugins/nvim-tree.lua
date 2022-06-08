@@ -3,11 +3,11 @@ if not status_ok then
     return
 end
 
-nvim_tree.setup {
+nvim_tree.setup({
     auto_reload_on_write    = true,
     create_in_closed_folder = false,
 
-    disable_netrw = false,
+    disable_netrw = true,
     hijack_cursor = false,
     hijack_netrw =  true,
     hijack_unnamed_buffer_when_opening = false,
@@ -16,21 +16,21 @@ nvim_tree.setup {
     open_on_setup          = false,
     open_on_setup_file     = false,
 
-    open_on_tab = false,
-    sort_by = "name",
-    update_cwd = false,
+    open_on_tab        = false,
+    sort_by            = "name",
+    update_cwd         = false,
     reload_on_bufenter = false,
-    respect_buf_cwd = false,
+    respect_buf_cwd    = false,
 
     view = {
-        width = 30,
-        height = 30,
-        side = "left",
+        width                       = 30,
+        height                      = 30,
+        side                        = "left",
         hide_root_folder            = true,
         preserve_window_proportions = false,
-        number         = false,
-        relativenumber = false,
-        signcolumn     = "yes",
+        number                      = false,
+        relativenumber              = false,
+        signcolumn                  = "yes",
 
         mappings = {
             custom_only = false,
@@ -74,23 +74,23 @@ nvim_tree.setup {
                 symlink = "",
                 folder = {
                     arrow_closed = "",
-                    arrow_open = "",
-                    default = "",
-                    open = "",
-                    empty = "",
-                    empty_open = "",
-                    symlink = "",
+                    arrow_open   = "",
+                    default      = "",
+                    open         = "",
+                    empty        = "",
+                    empty_open   = "",
+                    symlink      = "",
                     symlink_open = "",
                 },
 
                 git = {
-                    unstaged = "✗",
-                    staged = "✓",
-                    unmerged = "",
-                    renamed = "➜",
-                    untracked = "★",
-                    deleted = "",
-                    ignored = "◌",
+                    unstaged  = "✗",
+                    staged    = "✓",
+                    unmerged  = "",
+                    renamed   = "➜",
+                    untracked = "?",
+                    deleted   = "",
+                    ignored   = "◌",
                 },
             },
         },
@@ -120,41 +120,41 @@ nvim_tree.setup {
         enable = false,
         show_on_dirs = false,
         icons = {
-            hint = "",
-            info = "",
+            hint    = "",
+            info    = "",
             warning = "",
-            error = "",
+            error   = "",
         },
     },
     filters = {
         dotfiles = false,
-        custom = {},
-        exclude = {},
+        custom   = {},
+        exclude  = {},
     },
     git = {
-        enable = true,
-        ignore = true,
+        enable  = true,
+        ignore  = true,
         timeout = 400,
     },
     actions = {
         use_system_clipboard = true,
         change_dir = {
-            enable = true,
-            global = false,
+            enable             = true,
+            global             = false,
             restrict_above_cwd = false,
         },
         expand_all = {
             max_folder_discovery = 300,
         },
         open_file = {
-            quit_on_open = false,
+            quit_on_open  = false,
             resize_window = true,
             window_picker = {
-                enable = true,
-                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+                enable  = true,
+                chars   = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                 exclude = {
                     filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-                    buftype = { "nofile", "terminal", "help" },
+                    buftype  = { "nofile", "terminal", "help" },
                 },
             },
         },
@@ -172,15 +172,15 @@ nvim_tree.setup {
     },
 
     log = {
-        enable = false,
+        enable   = false,
         truncate = false,
         types = {
-            all = false,
-            config = false,
-            copy_paste = false,
+            all         = false,
+            config      = false,
+            copy_paste  = false,
             diagnostics = false,
-            git = false,
-            profile = false,
+            git         = false,
+            profile     = false,
         },
     },
-} -- END_DEFAULT_OPTS
+});
